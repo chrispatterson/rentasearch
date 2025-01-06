@@ -1,0 +1,24 @@
+<tr id="<%= dom_id property %>" class="odd:bg-slate-50 even:bg-white">
+  <td class="py-5">
+    <%= property.address %>
+    <%= property.city %>
+    <%= property.state %>
+  </td>
+  <td class="py-5 text-center">
+  <%= link_to pluralize(property.units.count, 'Unit'),
+    property_units_path(property),
+    class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </td>
+  <td>
+    <%= link_to "Edit", 
+      edit_property_path(property),
+      class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= button_to "Destroy", 
+      property, 
+      method: :delete, 
+      class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium", 
+      data: { 
+        turbo_method: :delete, 
+        turbo_confirm: "Are you sure you want to delete this property?" } %>
+  </td>
+</tr>

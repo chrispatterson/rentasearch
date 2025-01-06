@@ -1,0 +1,27 @@
+<div id="<%= dom_id result %>" class="odd:bg-slate-50 even:bg-white">
+  <p class="min-w-full p-5">
+    <%= result.address %>
+    <%= result.city %>
+    <%= result.state %>
+  </p>
+  <% if result.units.present? %>
+    <table class="mt-5 p-5">
+      <thead>
+        <tr>
+          <th class="px-5">bedroom count</th>
+          <th class="px-5">bathroom count</th>
+          <th class="px-5">rent price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% result.units.each do |unit| %>
+          <tr class="odd:bg-stone-100 even:bg-stone-50">
+            <td class="text-center"><%= unit.bedroom_count %></td>
+            <td class="text-center"><%= unit.bathroom_count %></td>
+            <td class="text-center"><%= unit.bedroom_count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
